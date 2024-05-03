@@ -1,2 +1,5 @@
 /build/script.py
 */resources/*
+*/.zip/*
+*/.csv/*
+*/.parquet/*
