@@ -3,3 +3,4 @@
 *.zip
 *.csv
 *.parquet
+__pycache__/

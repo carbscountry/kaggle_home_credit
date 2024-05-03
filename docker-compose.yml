@@ -1,18 +1,17 @@
-version: '3.2'
+version: '3.9'
 services:
   app:
     build:
-      context: .
+      context: ./
+      # dockerfile: Dockerfile
       shm_size: '5gb'
 
-
-    # dockerfile: Dockerfile
     container_name: 'home-credit-default-risk'
-    devices:
-      - /dev/nvidia0
+    # devices:
+    #   - /dev/nvidia0
     working_dir: '/workspace'
     volumes:
-      -  .home/:/workspace/
+      -  ./:/workspace/
     deploy:
       resources:
         reservations:
@@ -23,3 +22,9 @@ services:
     ports:
       - "127.0.0.1:8080:8888"
     tty: true
+    networks:
+      - db_network
+
+networks:
+  db_network:
+    external: true
